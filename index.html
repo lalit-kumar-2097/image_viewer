@@ -1,0 +1,68 @@
+<html>
+<head>
+	<title>Load Images with Serial Numbers</title>
+	<style>
+		/* Style for images and serial numbers */
+		img {
+			margin-right: 50px;            
+		}
+
+		.serial {
+			font-size: 18px;
+			font-weight: bold;
+		}
+        #image-container{            
+            margin-block: 50px;
+            /* border: 3px solid black; */
+        }
+        img {
+            height: 400px;
+            width:auto;
+            /* background-color: powderblue; */
+        }
+
+	</style>
+</head>
+<body>
+	<label for="imageList">Enter the list of image URLs separated by space:</label><br>
+	<input type="text" id="imageList"><br><br>
+	<button onclick="loadImages()">Load Images</button>
+
+	<div id="image-container" ></div>
+
+	<script>
+		function loadImages() {
+			// Get the image list from the input field
+			var imageList = document.getElementById("imageList").value;
+
+			// Split the list into an array
+			var images = imageList.split(" ");
+
+			// Clear the image container
+			document.getElementById("image-container").innerHTML = "";
+
+			// Loop through the array and display images with serial numbers
+			for (var i = 0; i < images.length; i++) {
+				// Create image element
+				var img = document.createElement("img");
+				img.src = images[i];
+
+				// Create serial number element
+				var serial = document.createElement("div");
+				serial.className = "serial";
+				serial.textContent = "Image " + (i + 1);
+                serial.style = "Float: right";
+
+				// Create container element for the image and serial number
+				var container = document.createElement("div");
+				container.appendChild(img);
+				container.appendChild(serial);
+                container.style = "width: 80%; border: 3px solid black; Margin: 5px";
+
+				// Add the container to the image container on the web page
+				document.getElementById("image-container").appendChild(container);
+			}
+		}
+	</script>
+</body>
+</html>
