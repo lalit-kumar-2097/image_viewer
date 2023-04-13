@@ -71,8 +71,9 @@
 				var img = document.createElement("img");
 				img.src = images[i];
 				
-				var p = document.createElement("p");
-				p.textcontent = "Link: " + images[i];
+				const p = document.createElement("p");
+				const node = document.createTextNode("Link: " + images[i]);
+				p.appendChild(node);
 
 				// Create serial number element
 				var serial = document.createElement("div");
