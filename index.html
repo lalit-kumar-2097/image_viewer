@@ -70,6 +70,9 @@
 				// Create image element
 				var img = document.createElement("img");
 				img.src = images[i];
+				
+				var p = document.createElement("p");
+				p.textcontent = images[i];
 
 				// Create serial number element
 				var serial = document.createElement("div");
@@ -81,6 +84,7 @@
 				var container = document.createElement("div");
 				container.appendChild(img);
 				container.appendChild(serial);
+				container.appendChild(p);
                 container.style = " border: 3px solid black; Margin: 5px; align: center";
 
 				// Add the container to the image container on the web page
